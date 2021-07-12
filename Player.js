@@ -7,13 +7,12 @@ class Player {
     this.letterGuesses = 5;
     this.guesses = [];
   }
-  setOptions(cb){
-    console.clear();
-    this.name = input.question(`Enter a new name, or leave this field blank to stick with the current name ["${this.name}"]: `,{defaultInput:this.name});
+  setOptions(cb) {
+    this.name = input.question(`Enter a new name, or leave this field blank to stick with the current name ["${this.name}"]: `, { defaultInput: this.name });
     this.letterGuesses = input.question(`Enter the number of guesses before game-over [Current setting: ${this.letterGuesses}]: `, {
       defaultInput: this.letterGuesses
     })
-    if (typeof cb === 'function') {
+    if (typeof cb === "function") {
       cb();
     }
   }
@@ -26,12 +25,12 @@ class Player {
     }
 
   }
-  getInput(limit=/.*/, query="Please Provide Input: ", limitMessage="Invalid input", cb) {
+  getInput(limit = /.*/, query = "Please Provide Input: ", limitMessage = "Invalid input", cb) {
     let playerInput = input.question(
       query,
       {
-        limit:limit,
-        limitMessage:limitMessage,
+        limit: limit,
+        limitMessage: limitMessage,
       }
     ).toLowerCase();
     if (typeof cb === 'function') {
